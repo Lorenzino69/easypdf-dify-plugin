@@ -1,0 +1,22 @@
+identity:
+  name: pdf_to_powerpoint
+  author: easypdf
+  label:
+    en_US: PDF to PowerPoint
+description:
+  human:
+    en_US: Convert a PDF into a PowerPoint deck (.pptx), one slide per page.
+  llm: Convert a PDF into a PowerPoint presentation (.pptx), one slide per page.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+extra:
+  python:
+    source: tools/pdf_to_powerpoint.py

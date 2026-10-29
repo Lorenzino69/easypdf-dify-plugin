@@ -1,0 +1,9 @@
+[project]
+name = "easypdf"
+version = "0.0.1"
+description = "EasyPDF tools for Dify"
+requires-python = ">=3.12"
+dependencies = [
+    "dify-plugin==0.10.2",
+    "requests==2.34.2",
+]

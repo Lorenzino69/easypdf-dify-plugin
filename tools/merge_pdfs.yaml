@@ -1,0 +1,22 @@
+identity:
+  name: merge_pdfs
+  author: easypdf
+  label:
+    en_US: Merge PDFs
+description:
+  human:
+    en_US: Combine 2 to 20 PDF files into one PDF, in the order given.
+  llm: Merge 2 to 20 PDF files into a single PDF, in the order they are given. Returns the merged PDF.
+parameters:
+- name: files
+  type: files
+  required: true
+  label:
+    en_US: PDF files
+  human_description:
+    en_US: The PDF files to merge, in order (2 to 20 files, 50 MB each).
+  llm_description: The PDF files to merge, in the order they should appear.
+  form: llm
+extra:
+  python:
+    source: tools/merge_pdfs.py

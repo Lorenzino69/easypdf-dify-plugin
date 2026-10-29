@@ -1,0 +1,31 @@
+identity:
+  name: protect_pdf
+  author: easypdf
+  label:
+    en_US: Protect PDF
+description:
+  human:
+    en_US: Encrypt a PDF with a password (AES-256).
+  llm: Protect a PDF with a password using AES-256 encryption. Returns the encrypted PDF.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: password
+  type: string
+  required: true
+  label:
+    en_US: Password
+  human_description:
+    en_US: Password needed to open the PDF.
+  llm_description: The password to set on the PDF.
+  form: llm
+extra:
+  python:
+    source: tools/protect_pdf.py

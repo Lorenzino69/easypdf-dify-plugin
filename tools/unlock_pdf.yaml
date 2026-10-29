@@ -1,0 +1,31 @@
+identity:
+  name: unlock_pdf
+  author: easypdf
+  label:
+    en_US: Unlock PDF
+description:
+  human:
+    en_US: Remove the password of a PDF you own. The current password is required.
+  llm: Remove the password from a protected PDF. The current password must be provided.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: password
+  type: string
+  required: true
+  label:
+    en_US: Current password
+  human_description:
+    en_US: The current password of the PDF (case-sensitive).
+  llm_description: The current password of the PDF.
+  form: llm
+extra:
+  python:
+    source: tools/unlock_pdf.py

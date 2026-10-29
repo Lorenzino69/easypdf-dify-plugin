@@ -1,0 +1,62 @@
+identity:
+  name: add_page_numbers
+  author: easypdf
+  label:
+    en_US: Add Page Numbers
+description:
+  human:
+    en_US: Number the pages of a PDF.
+  llm: Add page numbers to every page of a PDF at the chosen position.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: position
+  type: select
+  required: false
+  label:
+    en_US: Position
+  human_description:
+    en_US: Where the numbers are printed on the page.
+  llm_description: Position of the page numbers.
+  form: llm
+  default: bottom-center
+  options:
+  - value: bottom-center
+    label:
+      en_US: Bottom center
+  - value: bottom-left
+    label:
+      en_US: Bottom left
+  - value: bottom-right
+    label:
+      en_US: Bottom right
+  - value: top-center
+    label:
+      en_US: Top center
+  - value: top-left
+    label:
+      en_US: Top left
+  - value: top-right
+    label:
+      en_US: Top right
+- name: start_number
+  type: number
+  required: false
+  label:
+    en_US: Start number
+  human_description:
+    en_US: Number printed on the first page. Default 1.
+  llm_description: Number printed on the first page. Default 1.
+  form: llm
+  default: 1
+  min: 0
+extra:
+  python:
+    source: tools/add_page_numbers.py

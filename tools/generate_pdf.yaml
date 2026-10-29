@@ -1,0 +1,87 @@
+identity:
+  name: generate_pdf
+  author: easypdf
+  label:
+    en_US: Generate PDF
+description:
+  human:
+    en_US: Create a PDF from HTML or Markdown, with optional {{name}} or [[name]] placeholders filled from variables.
+  llm: Generate a PDF document from HTML or Markdown content. Placeholders written {{name}} or [[name]] are replaced by the values in variables.
+parameters:
+- name: format
+  type: select
+  required: true
+  label:
+    en_US: Format
+  human_description:
+    en_US: Format of the content.
+  llm_description: 'Format of the content: html or markdown.'
+  form: llm
+  default: html
+  options:
+  - value: html
+    label:
+      en_US: HTML
+  - value: markdown
+    label:
+      en_US: Markdown
+- name: content
+  type: string
+  required: true
+  label:
+    en_US: Content
+  human_description:
+    en_US: The HTML or Markdown to render.
+  llm_description: The full HTML or Markdown source to render as a PDF.
+  form: llm
+- name: variables
+  type: string
+  required: false
+  label:
+    en_US: Variables
+  human_description:
+    en_US: 'Optional JSON object of placeholder values, for example {"name": "Ada", "total": "120 EUR"}.'
+  llm_description: Optional JSON object mapping placeholder names to values.
+  form: llm
+- name: page_format
+  type: select
+  required: false
+  label:
+    en_US: Page format
+  human_description:
+    en_US: Paper size. Default A4.
+  llm_description: Paper size, default A4.
+  form: llm
+  default: A4
+  options:
+  - value: A4
+    label:
+      en_US: A4
+  - value: A3
+    label:
+      en_US: A3
+  - value: A5
+    label:
+      en_US: A5
+  - value: Letter
+    label:
+      en_US: Letter
+  - value: Legal
+    label:
+      en_US: Legal
+  - value: Tabloid
+    label:
+      en_US: Tabloid
+- name: landscape
+  type: boolean
+  required: false
+  label:
+    en_US: Landscape
+  human_description:
+    en_US: Use landscape orientation.
+  llm_description: true for landscape orientation, false for portrait (default).
+  form: llm
+  default: false
+extra:
+  python:
+    source: tools/generate_pdf.py

@@ -1,0 +1,31 @@
+identity:
+  name: edit_pdf_text
+  author: easypdf
+  label:
+    en_US: Edit PDF Text
+description:
+  human:
+    en_US: Replace or delete text inside an existing PDF. The original fonts, sizes, colors and layout are kept.
+  llm: Replace or delete text inside an existing PDF while keeping its fonts and layout. Use it to fix a typo or update a date, price, name or address in the PDF itself. Returns the edited PDF and a report of the replacements made per edit.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: edits
+  type: string
+  required: true
+  label:
+    en_US: Edits
+  human_description:
+    en_US: 'JSON list of changes, for example [{"find": "2025", "replace": "2026"}, {"find": "Draft", "replace": "", "page": 1}]. An empty or missing replace deletes the text; page (1-based) limits a change to one page.'
+  llm_description: 'JSON list of objects {"find": text exactly as printed in the PDF, "replace": new text (empty string deletes), "page": optional 1-based page}. Keep each find short (one line or a few words). Up to 50 edits.'
+  form: llm
+extra:
+  python:
+    source: tools/edit_pdf_text.py

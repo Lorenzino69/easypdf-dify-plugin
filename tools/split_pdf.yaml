@@ -1,0 +1,33 @@
+identity:
+  name: split_pdf
+  author: easypdf
+  label:
+    en_US: Split PDF
+description:
+  human:
+    en_US: Split a PDF into several PDFs of N pages each. Returns a ZIP archive.
+  llm: Split a PDF into parts of pages_per_file pages each. Returns a ZIP archive containing the parts.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: pages_per_file
+  type: number
+  required: false
+  label:
+    en_US: Pages per file
+  human_description:
+    en_US: Number of pages in each part. 1 gives one PDF per page.
+  llm_description: Number of pages in each output PDF (1 = one file per page).
+  form: llm
+  default: 1
+  min: 1
+extra:
+  python:
+    source: tools/split_pdf.py

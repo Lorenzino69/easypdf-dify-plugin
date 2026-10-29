@@ -1,0 +1,36 @@
+version: 0.0.1
+type: plugin
+author: easypdf
+name: easypdf
+label:
+  en_US: EasyPDF
+description:
+  en_US: Compress, merge, split, rotate, protect, watermark, translate and convert PDF files, replace text inside a PDF with the original fonts kept, and generate PDFs from HTML or Markdown.
+icon: icon.png
+repo: https://github.com/Lorenzino69/easypdf-dify-plugin
+contact: hello@easypdf.fr
+resource:
+  memory: 536870912
+  permission: {}
+plugins:
+  tools:
+    - provider/easypdf.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: "1.16.0"
+created_at: 2026-10-29T00:00:00+00:00
+privacy: PRIVACY.md
+verified: false
+tags:
+  - productivity
+  - utilities
+network:
+  domains:
+    - www.easypdf.fr

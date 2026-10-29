@@ -1,0 +1,42 @@
+identity:
+  author: easypdf
+  name: easypdf
+  label:
+    en_US: EasyPDF
+  description:
+    en_US: PDF tools from EasyPDF (www.easypdf.fr). Compress, merge, split, rotate, protect, watermark, translate and convert PDFs, replace text inside a PDF, and generate PDFs from HTML or Markdown.
+  icon: icon.png
+  tags:
+    - productivity
+    - utilities
+credentials_schema:
+  - name: api_key
+    type: secret-input
+    required: true
+    label:
+      en_US: EasyPDF API key
+    placeholder:
+      en_US: Paste your EasyPDF API key
+    help:
+      en_US: Create a key on the EasyPDF API page (sign in, then Create API Key). The key is sent in the X-API-Key header.
+    url: https://www.easypdf.fr/api-docs
+tools:
+  - tools/compress_pdf.yaml
+  - tools/merge_pdfs.yaml
+  - tools/split_pdf.yaml
+  - tools/extract_pages.yaml
+  - tools/rotate_pdf.yaml
+  - tools/protect_pdf.yaml
+  - tools/unlock_pdf.yaml
+  - tools/watermark_pdf.yaml
+  - tools/add_page_numbers.yaml
+  - tools/edit_pdf_text.yaml
+  - tools/pdf_to_word.yaml
+  - tools/pdf_to_excel.yaml
+  - tools/pdf_to_powerpoint.yaml
+  - tools/translate_pdf.yaml
+  - tools/generate_pdf.yaml
+  - tools/get_usage.yaml
+extra:
+  python:
+    source: provider/easypdf.py

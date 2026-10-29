@@ -1,0 +1,13 @@
+identity:
+  name: get_usage
+  author: easypdf
+  label:
+    en_US: Get API Usage
+description:
+  human:
+    en_US: 'Show this month''s EasyPDF API usage: units used, monthly limit, units remaining and plan.'
+  llm: 'Return the EasyPDF API usage of the current month: month, used, limit, remaining and plan.'
+parameters: []
+extra:
+  python:
+    source: tools/get_usage.py

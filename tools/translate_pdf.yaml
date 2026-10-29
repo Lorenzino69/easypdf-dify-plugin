@@ -1,0 +1,41 @@
+identity:
+  name: translate_pdf
+  author: easypdf
+  label:
+    en_US: Translate PDF
+description:
+  human:
+    en_US: Translate a PDF and get a PDF back with the layout kept. Requires a paid EasyPDF plan; 1 unit per page, 50 pages max.
+  llm: Translate a PDF document into another language and return a translated PDF with the original layout kept. Limited to 50 pages per call.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: target_language
+  type: string
+  required: true
+  label:
+    en_US: Target language
+  human_description:
+    en_US: Language to translate into, as a name or code, for example English, fr or es.
+  llm_description: Language to translate into, as a name or ISO code, for example English, French, fr, es.
+  form: llm
+- name: source_language
+  type: string
+  required: false
+  label:
+    en_US: Source language
+  human_description:
+    en_US: Language of the PDF. Leave empty or set auto to detect it.
+  llm_description: Language of the PDF, or auto to detect it (default).
+  form: llm
+  default: auto
+extra:
+  python:
+    source: tools/translate_pdf.py

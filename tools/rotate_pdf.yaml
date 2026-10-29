@@ -1,0 +1,51 @@
+identity:
+  name: rotate_pdf
+  author: easypdf
+  label:
+    en_US: Rotate PDF
+description:
+  human:
+    en_US: Rotate all pages of a PDF, or only some of them, clockwise.
+  llm: Rotate the pages of a PDF clockwise by 90, 180 or 270 degrees. Leave pages empty to rotate every page.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: angle
+  type: select
+  required: true
+  label:
+    en_US: Angle
+  human_description:
+    en_US: Clockwise rotation in degrees.
+  llm_description: 'Clockwise rotation: 90, 180 or 270.'
+  form: llm
+  default: '90'
+  options:
+  - value: '90'
+    label:
+      en_US: 90°
+  - value: '180'
+    label:
+      en_US: 180°
+  - value: '270'
+    label:
+      en_US: 270°
+- name: pages
+  type: string
+  required: false
+  label:
+    en_US: Pages
+  human_description:
+    en_US: Pages to rotate, for example 2,4-5. Leave empty to rotate every page.
+  llm_description: Optional 1-based pages to rotate, for example 2,4-5. Empty means all pages.
+  form: llm
+extra:
+  python:
+    source: tools/rotate_pdf.py

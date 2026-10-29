@@ -1,0 +1,42 @@
+identity:
+  name: compress_pdf
+  author: easypdf
+  label:
+    en_US: Compress PDF
+description:
+  human:
+    en_US: Reduce the size of a PDF. Choose low for the smallest file, high to keep the most image quality.
+  llm: Compress a PDF file to reduce its size. Returns the compressed PDF, the original and new sizes, and the EasyPDF units used.
+parameters:
+- name: file
+  type: file
+  required: true
+  label:
+    en_US: PDF file
+  human_description:
+    en_US: The PDF file to process (50 MB max).
+  llm_description: The PDF file to process.
+  form: llm
+- name: quality
+  type: select
+  required: false
+  label:
+    en_US: Quality
+  human_description:
+    en_US: low gives the smallest file, medium is balanced, high keeps the most image quality.
+  llm_description: 'Compression level: low (smallest file), medium (default) or high (best quality).'
+  form: llm
+  default: medium
+  options:
+  - value: low
+    label:
+      en_US: Low (smallest file)
+  - value: medium
+    label:
+      en_US: Medium
+  - value: high
+    label:
+      en_US: High (best quality)
+extra:
+  python:
+    source: tools/compress_pdf.py
